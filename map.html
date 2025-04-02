@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendy Web Page with Electronics Quiz</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles with animated gradient background */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f7a8b8, #4db8ff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            text-align: center;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        /* Button Styles */
+        .button {
+            background-color: #fff;
+            color: #333;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            margin: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background-color: #ff4d4d;
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hidden Content Styles */
+        .hidden {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #fffae6;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* CSS Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: #fff;
+            background-color: #333;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .question {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            margin-bottom: 15px;
+        }
+
+        .options label {
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .options input[type="radio"]:checked + label {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Trendy Stylish Web Page with Electronics Quiz</h1>
+    </header>
+
+    <main>
+        <p>Welcome to the Electronics Quiz! Test your knowledge by answering the questions below.</p>
+
+        <!-- Electronics Quiz Section -->
+        <div class="quiz-section">
+            <div id="quiz-container">
+                <div class="question" id="question">What does "LED" stand for?</div>
+                <ul class="options">
+                    <li>
+                        <input type="radio" id="option1" name="answer" value="A">
+                        <label for="option1">A) Light Emitting Diode</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="option2" name="answer" value="B">
+                        <label for="option2">B) Light Emission Device</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="option3" name="answer" value="C">
+                        <label for="option3">C) Low Emission Diode</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="option4" name="answer" value="D">
+                        <label for="option4">D) Light Energy Diode</label>
+                    </li>
+                </ul>
+                <button class="submit-btn" onclick="submitAnswer(1, 'A')">Submit Answer</button>
+                <div class="result" id="result1"></div>
+            </div>
+        </div>
+
+        <div class="quiz-section">
+            <div id="quiz-container2">
+                <div class="question" id="question2">What is the unit of electrical resistance?</div>
+                <ul class="options">
+                    <li>
+                        <input type="radio" id="option5" name="answer2" value="A">
+                        <label for="option5">A) Ohm</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="option6" name="answer2" value="B">
+                        <label for="option6">B) Volt</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="option7" name="answer2" value="C">
+                        <label for="option7">C) Ampere</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="option8" name="answer2" value="D">
+                        <label for="option8">D) Watt</label>
+                    </li>
+                </ul>
+                <button class="submit-btn" onclick="submitAnswer(2, 'A')">Submit Answer</button>
+                <div class="result" id="result2"></div>
+            </div>
+        </div>
+
+        <div class="quiz-section">
+            <div id="quiz-container3">
+                <div class="question" id="question3">Which component is used to store electrical energy?</div>
+                <ul class="options">
+                    <li>
+                        <input type="radio" id="option9" name="answer3" value="A">
+                        <label for="option9">A) Capacitor</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="option10" name="answer3" value="B">
+                        <label for="option10">B) Resistor</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="option11" name="answer3" value="C">
+                        <label for="option11">C) Diode</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="option12" name="answer3" value="D">
+                        <label for="option12">D) Transistor</label>
+                    </li>
+                </ul>
+                <button class="submit-btn" onclick="submitAnswer(3, 'A')">Submit Answer</button>
+                <div class="result" id="result3"></div>
+            </div>
+        </div>
+
+        <button class="button" onclick="toggleContent()">Toggle Hidden Content</button>
+
+        <div id="hiddenContent" class="hidden">
+            <p>This is some hidden content that now appears thanks to JavaScript!</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Trendy Web Page</p>
+    </footer>
+
+    <script>
+        // JavaScript to toggle hidden content
+        function toggleContent() {
+            var content = document.getElementById("hiddenContent");
+            content.classList.toggle("hidden");
+        }
+
+        // JavaScript for the quiz functionality
+        function submitAnswer(questionNumber, correctAnswer) {
+            const selectedOption = document.querySelector(`input[name="answer${questionNumber}"]:checked`);
+            const resultDiv = document.getElementById(`result${questionNumber}`);
+
+            if (!selectedOption) {
+                resultDiv.textContent = "Please select an answer!";
+                resultDiv.style.color = 'red';
+                return;
+            }
+
+            const answer = selectedOption.value;
+            if (answer === correctAnswer) {
+                resultDiv.textContent = "Correct!";
+                resultDiv.style.color = 'green';
+            } else {
+                resultDiv.textContent = "Incorrect. The correct answer is " + correctAnswer + ".";
+                resultDiv.style.color = 'red';
+            }
+        }
+    </script>
+
+</body>
+</html>
